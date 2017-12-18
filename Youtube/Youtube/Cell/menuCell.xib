@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="menuCell" id="gTV-IL-0wX" customClass="menuCell" customModule="Youtube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="153" height="154"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="153" height="154"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="Uyf-A6-Vjf">
+                        <rect key="frame" x="45.5" y="46" width="62" height="62"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Uyf-A6-Vjf" secondAttribute="height" multiplier="1:1" id="ggZ-dM-i5Q"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Uyf-A6-Vjf" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="3T7-oG-i8K"/>
+                <constraint firstItem="Uyf-A6-Vjf" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="e1g-rO-ei6"/>
+                <constraint firstItem="Uyf-A6-Vjf" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.4" id="gHE-KL-cik"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="153" height="154"/>
+            <connections>
+                <outlet property="imageView" destination="Uyf-A6-Vjf" id="TVG-uO-O0Q"/>
+            </connections>
+            <point key="canvasLocation" x="91.5" y="135"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Home" width="64" height="64"/>
+    </resources>
+</document>

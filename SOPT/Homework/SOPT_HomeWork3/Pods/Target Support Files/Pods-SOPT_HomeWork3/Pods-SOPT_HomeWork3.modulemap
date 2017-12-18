@@ -1,0 +1,6 @@
+framework module Pods_SOPT_HomeWork3 {
+  umbrella header "Pods-SOPT_HomeWork3-umbrella.h"
+
+  export *
+  module * { export * }
+}
