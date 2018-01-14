@@ -12,16 +12,6 @@ import FacebookLogin
 import FBSDKCoreKit
 struct UserDataRequset: GraphRequestProtocol
 {
-//    var graphPath: String
-//
-//    var parameters: [String : Any]?
-//
-//    var accessToken: AccessToken?
-//
-//    var httpMethod: GraphRequestHTTPMethod
-//
-//    var apiVersion: GraphAPIVersion
-
     public let graphPath = "me"
     public let parameters: [String:Any]? = ["fields" : "id, email, name, picture{url}"]
     public let accessToken: AccessToken? = AccessToken.current
@@ -75,7 +65,6 @@ class LogInViewController: UIViewController {
             switch logInResult{
             case .success(grantedPermissions: _, declinedPermissions: _, token: _) :
                 self.getFaceBookUserData()
-                self.goToNextVC()
                 break
             case .failed(let err) :
                 print(err.localizedDescription)
@@ -100,6 +89,7 @@ class LogInViewController: UIViewController {
             switch result {
             case .success(let graphResponse) :
                 self.userData = graphResponse
+                self.goToNextVC()
                 print(self.userData)
                 break
             case .failed :
