@@ -29,11 +29,21 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        //블루투스 켜기/끄기의 상태확인 및 스캔
-        if central.state == .poweredOn {
+        //블루투스 켜기/끄기 등의 상태확인 및 스캔
+
+        switch central.state {
+        case .unknown:
+            print("The state of the BLE Manager is unknown.")
+        case .resetting:
+            print("The BLE Manager is resetting; a state update is pending.")
+        case .unsupported:
+            print("This device does not support Bluetooth Low Energy.")
+        case .unauthorized:
+            print("This app is not authorized to use Bluetooth Low Energy.")
+        case .poweredOff:
+            print("Bluetooth on this device is currently powered off.")
+        case .poweredOn:
             central.scanForPeripherals(withServices: nil, options: nil)
-        } else {
-            print("Bluetooth not available.")
         }
     }
     
@@ -82,6 +92,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             if let data = characteristic.value {
                 data.copyBytes(to: &count, count: MemoryLayout<UInt8>.size)
                 print(count)
+                peripheral.writeValue(Data(), for: characteristic, type: .withResponse)
             }
         }
     }
