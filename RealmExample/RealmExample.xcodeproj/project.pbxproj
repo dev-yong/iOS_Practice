@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7D15EDB4E0327164D96E1A4A /* Pods_RealmExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5229167C5543AC4C453037 /* Pods_RealmExample.framework */; };
+		FC614E01201545730089C72C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E00201545730089C72C /* Contact.swift */; };
+		FC614E05201549EC0089C72C /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E04201549EC0089C72C /* ReuseIdentifier.swift */; };
+		FC614E07201551170089C72C /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E06201551170089C72C /* InputViewController.swift */; };
+		FC614E0920157A0C0089C72C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E0820157A0C0089C72C /* Task.swift */; };
 		FCC10D03200C604D0003A116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC10D02200C604C0003A116 /* AppDelegate.swift */; };
-		FCC10D05200C604D0003A116 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC10D04200C604D0003A116 /* ViewController.swift */; };
+		FCC10D05200C604D0003A116 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC10D04200C604D0003A116 /* ContactViewController.swift */; };
 		FCC10D08200C604D0003A116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC10D06200C604D0003A116 /* Main.storyboard */; };
 		FCC10D0A200C604D0003A116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC10D09200C604D0003A116 /* Assets.xcassets */; };
 		FCC10D0D200C604D0003A116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC10D0B200C604D0003A116 /* LaunchScreen.storyboard */; };
@@ -19,9 +23,13 @@
 		2B19D0F2FDCBBF0739F7B22E /* Pods-RealmExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealmExample/Pods-RealmExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8F5229167C5543AC4C453037 /* Pods_RealmExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E060015827C9CE3C6F501AF5 /* Pods-RealmExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmExample/Pods-RealmExample.release.xcconfig"; sourceTree = "<group>"; };
+		FC614E00201545730089C72C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		FC614E04201549EC0089C72C /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
+		FC614E06201551170089C72C /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		FC614E0820157A0C0089C72C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		FCC10CFF200C604C0003A116 /* RealmExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC10D02200C604C0003A116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCC10D04200C604D0003A116 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCC10D04200C604D0003A116 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		FCC10D07200C604D0003A116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCC10D09200C604D0003A116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCC10D0C200C604D0003A116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +65,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC614DFE201545490089C72C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC614E00201545730089C72C /* Contact.swift */,
+				FC614E0820157A0C0089C72C /* Task.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC614DFF201545500089C72C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FCC10D04200C604D0003A116 /* ContactViewController.swift */,
+				FC614E06201551170089C72C /* InputViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FC614E022015457B0089C72C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FCC10D06200C604D0003A116 /* Main.storyboard */,
+				FCC10D0B200C604D0003A116 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		FC614E03201549D70089C72C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FC614E04201549EC0089C72C /* ReuseIdentifier.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FCC10CF6200C604C0003A116 = {
 			isa = PBXGroup;
 			children = (
@@ -78,11 +121,12 @@
 		FCC10D01200C604C0003A116 /* RealmExample */ = {
 			isa = PBXGroup;
 			children = (
+				FC614E03201549D70089C72C /* Extension */,
+				FC614E022015457B0089C72C /* Storyboard */,
+				FC614DFF201545500089C72C /* ViewController */,
+				FC614DFE201545490089C72C /* Model */,
 				FCC10D02200C604C0003A116 /* AppDelegate.swift */,
-				FCC10D04200C604D0003A116 /* ViewController.swift */,
-				FCC10D06200C604D0003A116 /* Main.storyboard */,
 				FCC10D09200C604D0003A116 /* Assets.xcassets */,
-				FCC10D0B200C604D0003A116 /* LaunchScreen.storyboard */,
 				FCC10D0E200C604D0003A116 /* Info.plist */,
 			);
 			path = RealmExample;
@@ -219,8 +263,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCC10D05200C604D0003A116 /* ViewController.swift in Sources */,
+				FC614E0920157A0C0089C72C /* Task.swift in Sources */,
+				FCC10D05200C604D0003A116 /* ContactViewController.swift in Sources */,
+				FC614E07201551170089C72C /* InputViewController.swift in Sources */,
 				FCC10D03200C604D0003A116 /* AppDelegate.swift in Sources */,
+				FC614E01201545730089C72C /* Contact.swift in Sources */,
+				FC614E05201549EC0089C72C /* ReuseIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
