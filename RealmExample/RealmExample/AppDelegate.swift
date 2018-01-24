@@ -18,6 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        if let realmURL = Realm.Configuration.defaultConfiguration.fileURL {
+            print(realmURL.absoluteString)
+//            do {
+//                try FileManager().removeItem(at: realmURL)
+//            }
+//            catch {
+//                fatalError("Couldn't remove Realm DB")
+//            }
+        }
+        
         return true
     }
 

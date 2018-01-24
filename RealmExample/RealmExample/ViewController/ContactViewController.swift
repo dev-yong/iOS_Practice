@@ -14,23 +14,34 @@ class ContactViewController: UIViewController {
     var contactArray = Contact.realm.objects(Contact.self)
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
+    private var token: NotificationToken!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         searchTextField.delegate = self
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        token = contactArray.observe({ (change) in
+            self.tableView.reloadData()
+        })
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        //tableView.reloadData()
         //print(NSHomeDirectory())
     }
     @IBAction func addAction(_ sender: UIBarButtonItem) {
         let nextVC: InputViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: InputViewController.reuseIdentifier) as! InputViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    
+    @IBAction func removeAction(_ sender: UIBarButtonItem) {
+        Contact.removeFromAllRealm()
+        //self.tableView.reloadData()
+    }
+    
 }
 
 extension ContactViewController: UITableViewDelegate, UITableViewDataSource{
@@ -44,12 +55,15 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            Contact.removeFromRealm(contactArray[indexPath.row])
-            tableView.deleteRows(at: [indexPath], with: .left)
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (deleteAction, indexPath) in
+            Contact.removeFromRealm(self.contactArray[indexPath.row])
         }
+        
+        return [deleteAction]
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         return
     }
@@ -66,7 +80,7 @@ extension ContactViewController: UITextFieldDelegate {
                     self.contactArray = Contact.realm.objects(Contact.self)
                     
                 }
-                self.tableView.reloadData()
+                //self.tableView.reloadData()
             }
         }
         return true

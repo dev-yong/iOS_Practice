@@ -11,7 +11,9 @@
 		FC614E01201545730089C72C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E00201545730089C72C /* Contact.swift */; };
 		FC614E05201549EC0089C72C /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E04201549EC0089C72C /* ReuseIdentifier.swift */; };
 		FC614E07201551170089C72C /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E06201551170089C72C /* InputViewController.swift */; };
-		FC614E0920157A0C0089C72C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E0820157A0C0089C72C /* Task.swift */; };
+		FC614E0B2015A9AA0089C72C /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E0A2015A9AA0089C72C /* Album.swift */; };
+		FC614E0D2015AE7C0089C72C /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E0C2015AE7C0089C72C /* AlbumViewController.swift */; };
+		FC614E0F2016CAA60089C72C /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC614E0E2016CAA60089C72C /* PhotoViewController.swift */; };
 		FCC10D03200C604D0003A116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC10D02200C604C0003A116 /* AppDelegate.swift */; };
 		FCC10D05200C604D0003A116 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC10D04200C604D0003A116 /* ContactViewController.swift */; };
 		FCC10D08200C604D0003A116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC10D06200C604D0003A116 /* Main.storyboard */; };
@@ -26,7 +28,9 @@
 		FC614E00201545730089C72C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		FC614E04201549EC0089C72C /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
 		FC614E06201551170089C72C /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
-		FC614E0820157A0C0089C72C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		FC614E0A2015A9AA0089C72C /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		FC614E0C2015AE7C0089C72C /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		FC614E0E2016CAA60089C72C /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		FCC10CFF200C604C0003A116 /* RealmExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC10D02200C604C0003A116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCC10D04200C604D0003A116 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				FC614E00201545730089C72C /* Contact.swift */,
-				FC614E0820157A0C0089C72C /* Task.swift */,
+				FC614E0A2015A9AA0089C72C /* Album.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -79,6 +83,8 @@
 			children = (
 				FCC10D04200C604D0003A116 /* ContactViewController.swift */,
 				FC614E06201551170089C72C /* InputViewController.swift */,
+				FC614E0C2015AE7C0089C72C /* AlbumViewController.swift */,
+				FC614E0E2016CAA60089C72C /* PhotoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -263,12 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC614E0920157A0C0089C72C /* Task.swift in Sources */,
 				FCC10D05200C604D0003A116 /* ContactViewController.swift in Sources */,
 				FC614E07201551170089C72C /* InputViewController.swift in Sources */,
 				FCC10D03200C604D0003A116 /* AppDelegate.swift in Sources */,
 				FC614E01201545730089C72C /* Contact.swift in Sources */,
 				FC614E05201549EC0089C72C /* ReuseIdentifier.swift in Sources */,
+				FC614E0F2016CAA60089C72C /* PhotoViewController.swift in Sources */,
+				FC614E0B2015A9AA0089C72C /* Album.swift in Sources */,
+				FC614E0D2015AE7C0089C72C /* AlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
