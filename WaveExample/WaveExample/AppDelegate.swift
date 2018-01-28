@@ -1,33 +1,21 @@
 //
 //  AppDelegate.swift
-//  RealmExample
+//  WaveExample
 //
-//  Created by 이광용 on 2018. 1. 15..
+//  Created by 이광용 on 2018. 1. 25..
 //  Copyright © 2018년 이광용. All rights reserved.
 //
 
 import UIKit
-import Realm
-import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        if let realmURL = Realm.Configuration.defaultConfiguration.fileURL {
-            print(realmURL.absoluteString)
-//            do {
-//                try FileManager().removeItem(at: realmURL)
-//            }
-//            catch {
-//                fatalError("Couldn't remove Realm DB")
-//            } 
-        }
-        
         return true
     }
 
