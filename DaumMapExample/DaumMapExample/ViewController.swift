@@ -6,6 +6,16 @@
 //  Copyright © 2018년 이광용. All rights reserved.
 //
 
+
+/*
+ 1. Add Frameworks
+ 2. [info.plist] - 'KAKAO_APP_KEY'(String)
+ 3. [info.plist] - 'App Transport Security Settings'
+ 4. [info.plist] - 'Privacy - Location When In Use Usage Description'
+ 5. DaumMapBridgingHeader
+ 6. MTMapViewDelegate, CLLocationManagerDelegate
+*/
+
 import UIKit
 import CoreLocation
 enum POIType: Int {
