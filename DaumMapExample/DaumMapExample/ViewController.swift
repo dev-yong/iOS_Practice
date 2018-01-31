@@ -8,7 +8,10 @@
 
 import UIKit
 import CoreLocation
-
+enum POIType: Int {
+    case dog = 0
+    case home = 1
+}
 class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet var mapFillView: UIView!
@@ -31,7 +34,6 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
             mapView.baseMapType = .standard
             mapView.setZoomLevel(1, animated: true)
             mapView.currentLocationTrackingMode = .onWithoutHeadingWithoutMapMoving
-            //mapView.updateCurrentLocationMarker(MTMapLocationMarkerItem!)
             let markerItem = MTMapLocationMarkerItem()
             markerItem.fillColor = UIColor.green.withAlphaComponent(0.1)
             markerItem.strokeColor = UIColor.green.withAlphaComponent(0.3)
@@ -41,27 +43,45 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.mapView.setMapCenter(currentLocation, animated: true)
     }
     
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        self.mapView.removeAllPOIItems()
-        self.mapView.add(poiItem(name: "복순이", location: location))
-        //mapView.setMapCenter(location, animated: true)
+        removePOIFromTag(type: .dog)
+        self.mapView.add(poiItem(name: "복순이", location: location, type: .dog))
         currentLocation = location
     }
     
-    func poiItem(name: String, location: MTMapPoint) -> MTMapPOIItem {
+    func removePOIFromTag(type: POIType) {
+        for item in self.mapView.poiItems as! [MTMapPOIItem] {
+            if item.tag == type.rawValue {
+                self.mapView.remove(item)
+            }
+        }
+    }
+    
+    func poiItem(name: String, location: MTMapPoint, type: POIType) -> MTMapPOIItem {
         let poiItem = MTMapPOIItem()
         poiItem.itemName = name
         poiItem.markerType = .customImage
-        poiItem.customImage = getPinImage(topImage: #imageLiteral(resourceName: "sitOn"))
         poiItem.mapPoint = location
         poiItem.showAnimationType = .springFromGround
+        poiItem.showDisclosureButtonOnCalloutBalloon = false
         
+        switch type {
+        case .dog:
+            poiItem.tag = POIType.dog.rawValue
+            poiItem.customImage = getPinImage(topImage: #imageLiteral(resourceName: "sitOn"))
+            poiItem.customImageAnchorPointOffset = .init(offsetX: Int32(poiItem.customImage.size.width / 2) , offsetY: 0)
+        case .home:
+            poiItem.tag = POIType.home.rawValue
+            poiItem.customImage = getImage(image: #imageLiteral(resourceName: "sitOn"))
+            poiItem.customImageAnchorPointOffset = .init(offsetX: Int32(poiItem.customImage.size.width / 2),
+                                                         offsetY: Int32(poiItem.customImage.size.height / 2))
+            break
+        }
         
-        poiItem.customImageAnchorPointOffset = .init(offsetX: Int32(( #imageLiteral(resourceName: "locationG").size.width * 2 ) / 2) , offsetY: 0)
         return poiItem
     }
     
@@ -70,7 +90,21 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
         self.mapView.setMapCenter(currentLocation, animated: true)
     }
     
+    func mapView(_ mapView: MTMapView!, longPressOn mapPoint: MTMapPoint!) {
+        removePOIFromTag(type: .home)
+        self.mapView.add(poiItem(name: "집", location: mapPoint, type: .home))
+    }
     
+    func getImage(image: UIImage) -> UIImage {
+        let size = CGSize(width: image.size.width, height: image.size.height)
+        UIGraphicsBeginImageContext(size)
+        let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        image.draw(in: areaSize)
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
     
     func getPinImage(topImage: UIImage) -> UIImage {
         let image:UIImage = #imageLiteral(resourceName: "locationG")
@@ -88,7 +122,7 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
         
         return newImage
     }
-    
 
 }
+
 
