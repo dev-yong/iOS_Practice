@@ -58,25 +58,32 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
         print("Peripheral Name : \(advertisementData[CBAdvertisementDataLocalNameKey])")
         
+        
         if device?.contains(PeripheralInfo.name) == true {
             self.manager.stopScan()
             self.peripheral = peripheral
             self.peripheral.delegate = self
-            
             manager.connect(peripheral, options: nil)
         }
-    }
-    
-    
-    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        peripheral.discoverServices(nil)//peripheral의 Service 받기
-        peripheral.readRSSI()
     }
     
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         print(RSSI)
     }
     
+    func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: Error?) {
+        print(peripheral.rssi)
+        DispatchQueue.global(qos: .background).async {
+            var timer = Timer()
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.readRSSI), userInfo: nil, repeats: true)
+        }
+    }
+
+    
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        peripheral.discoverServices(nil)//peripheral의 Service 받기
+    }
+
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         for service in peripheral.services! {
             
@@ -95,7 +102,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             print(cbcharacteristic.uuid)
             if cbcharacteristic.uuid == PeripheralInfo.scratch_UUID {
                 self.character = cbcharacteristic
-                self.peripheral.setNotifyValue(true, for: cbcharacteristic)
+                self.peripheral.setNotifyValue(true, for: cbcharacteristic) //주기적인 업데이트
             }
         }
     }
@@ -110,6 +117,12 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
 //                print(count)
 //            }
 //        }
+        
+//        self.peripheral.readRSSI()
+    }
+    
+    @objc func readRSSI() {
+        self.peripheral.readRSSI()
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
