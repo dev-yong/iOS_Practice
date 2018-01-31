@@ -13,7 +13,7 @@ import CoreBluetooth
 //https://styleshare.github.io/2015/11/05/estimator.html
 
 struct PeripheralInfo{
-    static let name = "sj"
+    static let name = "Alert Notification"
     static let scratch_UUID =
         CBUUID(string: "a495ff21-c5b1-4b44-b512-1370f02d74de")
     static let service_UUID =
@@ -66,14 +66,20 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             
             self.peripheral = peripheral
             self.peripheral.delegate = self
-            
+        
             manager.connect(peripheral, options: nil)
         }
     }
     
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        
         peripheral.discoverServices(nil)//peripheral의 Service 받기
+        peripheral.readRSSI()
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        print(RSSI)
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
