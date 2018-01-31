@@ -51,9 +51,6 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
     
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
         currentLocation = location
-        removePOIFromTag(type: .dog)
-        self.mapView.add(poiItem(name: "복순이", location: location, type: .dog))
-        
     }
     
     func removePOIFromTag(type: POIType) {
@@ -71,7 +68,7 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
         poiItem.mapPoint = location
         poiItem.showAnimationType = .springFromGround
         poiItem.showDisclosureButtonOnCalloutBalloon = false
-        
+        removePOIFromTag(type: type)
         switch type {
         case .dog:
             poiItem.tag = POIType.dog.rawValue
@@ -93,9 +90,16 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
         self.mapView.setMapCenter(currentLocation, animated: true)
     }
     
+    var bool = false
     func mapView(_ mapView: MTMapView!, longPressOn mapPoint: MTMapPoint!) {
-        removePOIFromTag(type: .home)
-        self.mapView.add(poiItem(name: "집", location: mapPoint, type: .home))
+        if bool {
+            self.mapView.add(poiItem(name: "집", location: mapPoint, type: .home))
+            bool = false
+        }
+        else {
+            self.mapView.add(poiItem(name: "복순이", location: mapPoint, type: .dog))
+            bool = true
+        }
     }
     
     func getImage(image: UIImage) -> UIImage {
