@@ -44,13 +44,16 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.mapView.setMapCenter(currentLocation, animated: true)
+        if let coordinate = locationManager.location?.coordinate {
+            self.mapView.setMapCenter(MTMapPoint(geoCoord: .init(latitude: coordinate.latitude, longitude: coordinate.longitude)) , animated: true)
+        }
     }
     
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
+        currentLocation = location
         removePOIFromTag(type: .dog)
         self.mapView.add(poiItem(name: "복순이", location: location, type: .dog))
-        currentLocation = location
+        
     }
     
     func removePOIFromTag(type: POIType) {
