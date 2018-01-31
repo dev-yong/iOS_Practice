@@ -55,7 +55,8 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
     
     override func viewDidAppear(_ animated: Bool) {
         if let coordinate = locationManager.location?.coordinate {
-            self.mapView.setMapCenter(MTMapPoint(geoCoord: .init(latitude: coordinate.latitude, longitude: coordinate.longitude)) , animated: true)
+            self.mapView.setMapCenter(MTMapPoint(geoCoord: .init(latitude: coordinate.latitude, longitude: coordinate.longitude))
+                , zoomLevel: 1, animated: true)
         }
     }
     
@@ -97,7 +98,7 @@ class ViewController: UIViewController, MTMapViewDelegate, CLLocationManagerDele
     
     
     @IBAction func moveToCurrent(_ sender: UIButton) {
-        self.mapView.setMapCenter(currentLocation, animated: true)
+        self.mapView.setMapCenter(currentLocation, zoomLevel: 1, animated: true)
     }
     
     var bool = false
