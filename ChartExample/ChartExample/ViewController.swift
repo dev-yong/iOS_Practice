@@ -8,9 +8,11 @@
 
 import UIKit
 import KDCircularProgress
+import Charts
 
 class ViewController: UIViewController {
     @IBOutlet weak var circularProgress: KDCircularProgress!
+    @IBOutlet weak var barChart: BarChartView!
     
     
     override func viewDidLoad() {

@@ -6,7 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-LV-lRz" customClass="KDCircularProgress" customModule="KDCircularProgress">
-                                <rect key="frame" x="94" y="78" width="187.5" height="187.5"/>
+                                <rect key="frame" x="94" y="50" width="187.5" height="187.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xRr-LV-lRz" secondAttribute="height" multiplier="1:1" id="jl2-4d-4gd"/>
@@ -59,17 +61,25 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="nav-8u-5b6">
-                                <rect key="frame" x="91.5" y="537" width="191.5" height="31"/>
+                                <rect key="frame" x="91.5" y="245.5" width="191.5" height="31"/>
                                 <connections>
                                     <action selector="slideValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="z5Z-7N-hwk"/>
                                 </connections>
                             </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67K-b0-Wo6" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="275.5" width="375" height="391.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xRr-LV-lRz" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="5MZ-mt-Gzg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nav-8u-5b6" secondAttribute="bottom" constant="100" id="bV4-Xm-hu0"/>
-                            <constraint firstItem="xRr-LV-lRz" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.5" id="cC4-df-kya"/>
+                            <constraint firstItem="xRr-LV-lRz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="8Y2-Yo-ROo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="67K-b0-Wo6" secondAttribute="trailing" id="IQZ-G9-fhx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="67K-b0-Wo6" secondAttribute="bottom" id="XP7-jo-6Qq"/>
+                            <constraint firstItem="67K-b0-Wo6" firstAttribute="top" secondItem="nav-8u-5b6" secondAttribute="bottom" id="cfj-fn-toE"/>
+                            <constraint firstItem="nav-8u-5b6" firstAttribute="firstBaseline" secondItem="xRr-LV-lRz" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="fWG-AY-cHp"/>
+                            <constraint firstItem="67K-b0-Wo6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fsX-Hp-cey"/>
                             <constraint firstItem="nav-8u-5b6" firstAttribute="width" secondItem="xRr-LV-lRz" secondAttribute="width" id="tsg-rL-Nh7"/>
                             <constraint firstItem="nav-8u-5b6" firstAttribute="centerX" secondItem="xRr-LV-lRz" secondAttribute="centerX" id="xbl-cK-Nvt"/>
                             <constraint firstItem="xRr-LV-lRz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yYv-fn-t5z"/>
@@ -77,6 +87,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="barChart" destination="67K-b0-Wo6" id="c5Z-8S-KjU"/>
                         <outlet property="circularProgress" destination="xRr-LV-lRz" id="YLW-up-lJn"/>
                     </connections>
                 </viewController>
