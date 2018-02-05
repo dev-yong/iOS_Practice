@@ -24,7 +24,7 @@ class InputViewController: UIViewController {
         let contact: Contact = Contact()
         if let name = nameTextField.text, let phone = phoneTextField.text, !name.isEmpty, !phone.isEmpty {
             contact.name = name
-            contact.phoneNumeber = phone
+            contact.phone = phone
             contact.birthDay = datePicker.date
             Contact.addToRealm(contact)
             

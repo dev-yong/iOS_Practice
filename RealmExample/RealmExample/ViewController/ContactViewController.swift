@@ -93,7 +93,7 @@ class ContactCell: UITableViewCell {
     var info: Contact! {
         didSet{
             self.titleLabel.text = info.name
-            self.detailLabel.text = info.phoneNumeber
+            self.detailLabel.text = info.phone
         }
     }
 }
