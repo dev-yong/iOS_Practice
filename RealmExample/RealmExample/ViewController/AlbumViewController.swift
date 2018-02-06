@@ -92,6 +92,7 @@ extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
         let nextVC: PhotoViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: PhotoViewController.reuseIdentifier) as! PhotoViewController
         nextVC.selectedAlbum = albumArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
+        
     }
     
 }
