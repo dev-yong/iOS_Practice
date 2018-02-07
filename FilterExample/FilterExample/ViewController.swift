@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         CustomFiltersVendor.registerFilter()
         print(supportedFilterNamesInCategory(category: CATEGORYCUSTOMFILTERS))
-        guard let filter = CIFilter(name: RGBChannelBrightnessAndContrast.reuseIdentifier) else {return}
+        guard let filter = CIFilter(name: RGBChannelToneCurve.reuseIdentifier) else {return}
         
         print(filter.inputKeys)
         
@@ -41,9 +41,15 @@ class ViewController: UIViewController {
             filter.setValue(value, forKey: key)
         }
         filter.setValue(CIImage(image: #imageLiteral(resourceName: "example")), forKey: "inputImage")
+        filter.setValue(CIVector(values: [0.0, 0.25, 0.5, 0.82, 1.0], count: 5), forKey: "inputRedValues")
+        filter.setValue(CIVector(values: [0.0, 0.31, 0.58, 0.81, 1.0], count: 5), forKey: "inputGreenValues")
+        filter.setValue(CIVector(values: [0.0, 0.375, 0.52, 0.67, 1.0], count: 5), forKey: "inputBlueValues")
         
         if let image = filter.outputImage {
-            imageView.image = UIImage(ciImage: image)
+            let ciContext = CIContext()
+            let cgImage = ciContext.createCGImage(image, from: image.extent)
+            imageView.image = UIImage(cgImage: cgImage!)
+            
         }
 
     }
