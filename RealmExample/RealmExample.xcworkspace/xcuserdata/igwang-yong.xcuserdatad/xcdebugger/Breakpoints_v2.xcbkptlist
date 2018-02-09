@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/Model/Contact.swift"
-            timestampString = "539491819.861202"
+            timestampString = "539782562.4742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/ViewController/PhotoViewController.swift"
-            timestampString = "538449654.700559"
+            timestampString = "539782921.7890559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -498,7 +498,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/ViewController/PhotoViewController.swift"
-            timestampString = "538449654.700869"
+            timestampString = "539782921.789449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -546,7 +546,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/ViewController/PhotoViewController.swift"
-            timestampString = "538449654.700946"
+            timestampString = "539782921.789681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -562,7 +562,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/ViewController/PhotoViewController.swift"
-            timestampString = "538449654.7010159"
+            timestampString = "539782921.789915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -578,7 +578,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/ViewController/PhotoViewController.swift"
-            timestampString = "538449654.701082"
+            timestampString = "539782921.790148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -594,7 +594,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/ViewController/PhotoViewController.swift"
-            timestampString = "538449654.701177"
+            timestampString = "539782921.790387"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -626,7 +626,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/Model/Contact.swift"
-            timestampString = "539491819.861884"
+            timestampString = "539782562.477864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -642,7 +642,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/AppDelegate.swift"
-            timestampString = "539491819.8621221"
+            timestampString = "539783071.04943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -658,13 +658,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RealmExample/AppDelegate.swift"
-            timestampString = "539491819.862174"
+            timestampString = "539783071.04986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealmExample/ViewController/PhotoViewController.swift"
+            timestampString = "539782921.790707"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealmExample/ViewController/PhotoViewController.swift"
+            timestampString = "539782921.790943"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealmExample/Model/Album.swift"
+            timestampString = "539782701.157286"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "addToRealm(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RealmExample.Album.addToRealm&lt;A where A: RealmSwift.Object&gt;(A) -&gt; ()"
+                  moduleName = "RealmExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igwang-yong/iOS_Practice/RealmExample/RealmExample/Model/Album.swift"
+                  timestampString = "539783071.208708"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in static RealmExample.Album.addToRealm&lt;A where A: RealmSwift.Object&gt;(A) -&gt; ()"
+                  moduleName = "RealmExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igwang-yong/iOS_Practice/RealmExample/RealmExample/Model/Album.swift"
+                  timestampString = "539783071.213281"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
