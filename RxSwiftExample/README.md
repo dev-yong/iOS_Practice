@@ -1,5 +1,9 @@
 # RxSwift
 
+
+
+
+
 **Observable Stream** 
 
 |        |     Iterable     |     Observable     |
@@ -22,11 +26,9 @@
 
 
 
-**Observable**
+스마트폰은 *관찰이 가능(**observable**)* 합니다. 스마트폰은 페이스북 알림, 메세지, 스냅챗 알림 등과 같이 *신호(**signal**)를 방출* 합니다. 우리는 자연적으로 스마트폰을 *구독(**subscribe**)하고* 있고, 모든 알림을. 홈 스크린에서 확인할 수 있습니다. 이제 그 *신호(**signal**)* 로 무엇을 할 지 정할 수 있습니다. 우리는 *관찰자 (**observer**)* 입니다.
 
-**Observer** 
 
-**Observer**
 
 - **Subject** : *Observable*, *Observer* 를 통칭
   - **BehaviorSubject** : *Subject* 에 의해 반환한 가장 최근 값. + 구독 이후에 반환하는 값
