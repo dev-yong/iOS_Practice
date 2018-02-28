@@ -18,6 +18,8 @@ class slideInMenuView: UIView {
     func setUp()
     {
         self.backgroundColor = UIColor.clear
+        let guide = vcDelegate?.view.safeAreaLayoutGuide
+        print(guide?.layoutFrame)
         backgroundView.backgroundColor = UIColor.black
         backgroundView.alpha = 0
         menuTableView.register(UINib(nibName: "SlideInCell", bundle: nil), forCellReuseIdentifier: "SlideInCell")
@@ -26,7 +28,7 @@ class slideInMenuView: UIView {
         
         guard let window = UIApplication.shared.keyWindow else {return}
         window.addSubview(self)
-        self.frame = window.frame
+        self.frame = (guide?.layoutFrame)!
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss)))
         
         let tableHeight = menuTableView.frame.height
