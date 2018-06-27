@@ -58,6 +58,10 @@ class AlbumViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
 }
 
 extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,7 +74,8 @@ extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
         if let imageData = albumArray[indexPath.row].photos.sorted(byKeyPath: "saveDate", ascending: false).first?.imageData {
             cell.thumbnail.image = UIImage(data: imageData, scale: 0.1)
         }
-        
+        let testAlbum = albumArray[indexPath.row]
+        print(testAlbum)
         return cell
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
