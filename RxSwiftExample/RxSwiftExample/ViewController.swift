@@ -25,9 +25,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     let disposeBag = DisposeBag() // 뷰가 할당 해제될 때 놓아줄 수 있는 일회용품의 가방
-
+    
+    let observable = Observable.of(1,2,3)
+    let observable2 = Observable.of(2,3)
+    let subject = PublishSubject<Int>() // observer 이다. Publish, Behavior, Replay 들의 종류가 있다.
+    /*
+     PublishSubject : subsribe 이후의 것을 받는다. ex. 일반적인 리퀘스트
+     BehaviorSubject : subsribe 전의 마지막 것부터 받는다. ex. profile
+     ReplaySubejct : subsribe 전의 것을 bufferSize부터 받는다.
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //------------------------------------------
+        observable.subscribe(onNext: { (num) in
+            print(num)
+        }, onDisposed: {
+            print("dispose")
+        }).disposed(by: disposeBag)
+        //------------------------------------------
+        subject.subscribe(onNext: { (num) in
+            print(num)
+        }).disposed(by: disposeBag)
+        subject.on(.next(1))
+        //------------------------------------------
+        let stringObservable = Observable<String>.create { (observer) -> Disposable in
+            observer.onNext("1")
+            observer.onCompleted()
+            return Disposables.create()
+        }
+        //------------------------------------------
+        //operator : combineLatest, zip, merge...
+        Observable.combineLatest(observable, observable2)
+            .subscribe(onNext: { (num1, num2) in
+            }).disposed(by: disposeBag)
+        //------------------------------------------
         tableView.setUp(target: self, cell: TableViewCell.self)
         
         self.searchBar
