@@ -1,6 +1,0 @@
-framework module Pods_VideoTutorial {
-  umbrella header "Pods-VideoTutorial-umbrella.h"
-
-  export *
-  module * { export * }
-}
