@@ -16,8 +16,8 @@ class ViewController: UIViewController {
 //        APIRouter.shared.request(UserService.search(uuid: 2)) { (code: Int?, user: User?) in
 //            print(user)
 //        }
-        APIRouter.shared.request(UserService.get(page: 2)) { (code: Int?, users: UserList?) in
-            print(users)
+        APIRouter.shared.request(UserService.get(page: 2)) { (code: Int?, userList: UserList?) in
+            debugPrint(userList?.users?.forEach({print($0.firstName, $0.lastName)}))
         }
     }
 
